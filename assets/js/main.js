@@ -96,3 +96,15 @@ if (langToggle) {
   });
 }
 
+const overlay = document.querySelector(".cyber-overlay");
+
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.scrollY;
+  const delta = currentScroll - lastScroll;
+
+  overlay.style.transform = `translateY(${delta * 0.15}px)`;
+
+  lastScroll = currentScroll;
+});
