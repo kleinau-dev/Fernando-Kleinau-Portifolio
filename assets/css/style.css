@@ -160,23 +160,23 @@ a:hover {
 
 /* Camada cyan */
 .glitch::before {
-  color: #4c8bc5;
+  color: #000000;
 }
 
 /* Camada magenta */
 .glitch::after {
-  color: #ff0000;
+  color: #020202;
 }
 
 /* Ativa só no hover */
 .glitch:hover::before {
   opacity: 1;
-  animation: glitch-cyan 1.5s infinite steps(1);
+  animation: glitch-cyan 0.9s infinite steps(1);
 }
 
 .glitch:hover::after {
   opacity: 1;
-  animation: glitch-magenta 1.5s infinite steps(1);
+  animation: glitch-magenta 0.9s infinite steps(1);
 }
 
 /* Keyframes CYAN */
