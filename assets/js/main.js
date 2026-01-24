@@ -1,16 +1,20 @@
 const sections = document.querySelectorAll("section");
 
-const revealSections = () => {
+window.addEventListener("scroll", () => {
   const triggerBottom = window.innerHeight * 0.85;
+  const triggerTop = window.innerHeight * 0.15;
 
   sections.forEach(section => {
-    const boxTop = section.getBoundingClientRect().top;
+    const rect = section.getBoundingClientRect();
 
-    if (boxTop < triggerBottom && !section.classList.contains("show")) {
+    if (rect.top < triggerBottom && rect.bottom > triggerTop) {
       section.classList.add("show");
+    } else {
+      section.classList.remove("show");
     }
   });
-};
+});
+
 
 window.addEventListener("scroll", revealSections);
 window.addEventListener("load", revealSections);
@@ -36,3 +40,24 @@ if (cursor) {
   });
 }
 
+const translations = {
+  pt: {
+    about_title: "Sobre mim",
+    about_p1: "Sou Tecnólogo em Análise e Desenvolvimento de Sistemas..."
+  },
+  en: {
+    about_title: "About me",
+    about_p1: "I am a Systems Analysis and Development graduate..."
+  }
+};
+
+let currentLang = "pt";
+
+document.getElementById("lang-toggle").addEventListener("click", () => {
+  currentLang = currentLang === "pt" ? "en" : "pt";
+  document.getElementById("lang-toggle").innerText = currentLang.toUpperCase();
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    el.innerText = translations[currentLang][el.dataset.i18n];
+  });
+});

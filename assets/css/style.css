@@ -84,10 +84,18 @@ p {
 
 /* PROJECTS */
 .project-card {
+  display: block;
   border-left: 3px solid #ffffff;
   padding-left: 20px;
   margin-bottom: 30px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
+.project-card:hover {
+  transform: translateX(10px);
+  opacity: 0.8;
+}
+
 
 /* CURSOR */
 .custom-cursor {
@@ -134,7 +142,7 @@ a:hover {
 /* GLITCH EFFECT */
 .glitch {
   position: relative;
-  display: inline-block;
+  font-weight: 700;
 }
 
 .glitch::before,
@@ -142,36 +150,45 @@ a:hover {
   content: attr(data-text);
   position: absolute;
   left: 0;
-  top: 0;
   width: 100%;
-  opacity: 0;
-  pointer-events: none;
+  overflow: hidden;
 }
 
 .glitch::before {
-  color: #0ff;
+  top: -2px;
+  color: rgb(9, 10, 10);
+  clip-path: inset(0 0 50% 0);
 }
 
 .glitch::after {
-  color: #f0f;
+  top: 2px;
+  color: rgb(255, 255, 255);
+  clip-path: inset(50% 0 0 0);
 }
 
 .glitch:hover::before {
-  animation: glitch 0.4s infinite;
-  opacity: 1;
+  animation: glitchTop 0.4s infinite linear;
 }
 
 .glitch:hover::after {
-  animation: glitch 0.4s infinite reverse;
-  opacity: 1;
+  animation: glitchBottom 0.4s infinite linear;
 }
 
-@keyframes glitch {
+@keyframes glitchTop {
   0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
+  20% { transform: translate(-3px, -3px); }
+  40% { transform: translate(3px, 3px); }
+  60% { transform: translate(-3px, 3px); }
+  80% { transform: translate(3px, -3px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitchBottom {
+  0% { transform: translate(0); }
+  20% { transform: translate(3px, 3px); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(3px, -3px); }
+  80% { transform: translate(-3px, 3px); }
   100% { transform: translate(0); }
 }
 
@@ -187,3 +204,29 @@ a:hover {
   }
 }
 
+#lang-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 6px 12px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.cv-link {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  border: 1px solid white;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.cv-link:hover {
+  background: white;
+  color: black;
+}
