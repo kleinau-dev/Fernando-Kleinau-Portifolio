@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- ICONES -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -18,31 +21,34 @@
 
   <!-- HERO -->
   <section id="hero">
-  <video autoplay muted loop playsinline class="bg-video">
-    <source src="assets/video/matrix code.mp4.mp4" type="video/mp4">
-  </video>
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="assets/video/matrix.mp4" type="video/mp4">
+    </video>
 
-  <div class="overlay"></div>
+    <div class="overlay"></div>
 
-  <div class="hero-content glitch-hover">
-    <h1 data-text="Fernando Kleinau">Fernando Kleinau</h1>
-    <p>BACK-END DEVELOPER</p>
-  </div>
-</section>
+    <div class="hero-content">
+      <h1 class="glitch" data-text="Fernando Kleinau">Fernando Kleinau</h1>
+      <p>BACK-END DEVELOPER</p>
+    </div>
+  </section>
 
   <!-- SOBRE -->
   <section id="about">
-    <h2>Sobre mim</h2>
+    <h2 class="glitch" data-text="Sobre mim">Sobre mim</h2>
+
     <p>
-      Sou Tecnólogo em Análise e Desenvolvimento de Sistemas e pós-graduando em Engenharia de Software, com trajetória sólida em suporte técnico, manutenção de sistemas e infraestrutura de TI e atuação atual em desenvolvimento back-end com foco em APIs e segurança.
-      
+      Sou Tecnólogo eeem Análise e Desenvolvimento de Sistemas e pós-graduando em Engenharia de Software, com trajetória sólida em suporte técnico, manutenção de sistemas e infraestrutura de TI e atuação atual em desenvolvimento back-end com foco em APIs e segurança.
+    </p>
+
+    <p>
       Desenvolvo soluções utilizando Python e Java, com ênfase em APIs REST, autenticação JWT, integração com bancos de dados SQL e versionamento de código com Git/GitHub. Tenho experiência prática em estruturação de projetos, organização de código e aplicação de boas práticas de desenvolvimento, segurança e manutenibilidade.
     </p>
   </section>
 
   <!-- PROJETOS -->
   <section id="projects">
-    <h2>Projetos</h2>
+    <h2 class="glitch" data-text="Projetos">Projetos</h2>
 
     <div class="project-card">
       <h3>API REST - Java</h3>
@@ -57,25 +63,23 @@
 
   <!-- CONTATO -->
   <section id="contact">
-  <h2>Contato</h2>
+    <h2 class="glitch" data-text="Contato">Contato</h2>
 
-  <div class="contact-links">
-    <a href="https://github.com/kleinau-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-      <img src="assets/images/github.webp" alt="GitHub">
-    </a>
+    <div class="contact-links">
+      <a href="https://github.com/kleinau-dev" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
 
-    <a href="https://www.linkedin.com/in/fernando-kleinau/" target="_blank" rel="noopener noreferrer" aria-label="Linkedin">
-      <img src="assets/images/linkedin.png" alt="LinkedIn">
-    </a>
+      <a href="https://www.linkedin.com/in/fernando-kleinau/" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
 
-    <a href="mailto:fernandokleinau@gmail.com" aria-label="Email">
-      <img src="assets/images/gmail.png" alt="Email">
-    </a>
-  </div>
-</section>
-
+      <a href="mailto:fernandokleinau@gmail.com">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </section>
 
   <script src="assets/js/main.js"></script>
 </body>
 </html>
-

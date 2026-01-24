@@ -1,6 +1,6 @@
 const sections = document.querySelectorAll("section");
 
-window.addEventListener("scroll", () => {
+const revealSections = () => {
   const triggerBottom = window.innerHeight * 0.85;
 
   sections.forEach(section => {
@@ -10,7 +10,10 @@ window.addEventListener("scroll", () => {
       section.classList.add("show");
     }
   });
-});
+};
+
+window.addEventListener("scroll", revealSections);
+window.addEventListener("load", revealSections);
 
 const cursor = document.querySelector(".custom-cursor");
 
@@ -32,3 +35,4 @@ if (cursor) {
     });
   });
 }
+

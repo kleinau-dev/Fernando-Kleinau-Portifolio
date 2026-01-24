@@ -14,11 +14,37 @@ body {
 
 /* HERO */
 #hero {
+  position: relative;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle, #111 0%, #000 70%);
+  overflow: hidden;
+}
+
+/* VIDEO */
+.bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+}
+
+/* HERO CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
 }
 
 .hero-content h1 {
@@ -28,7 +54,6 @@ body {
 }
 
 .hero-content p {
-  text-align: center;
   margin-top: 10px;
   color: #aaa;
 }
@@ -73,22 +98,81 @@ p {
   position: fixed;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: transform 0.1s ease, background-color 0.2s ease;
+  transition: transform 0.1s ease;
   z-index: 9999;
-  background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* LINKS */
+/* LINKS GERAIS */
 a {
   color: #ffffff;
   text-decoration: none;
-  border-bottom: 1px solid #ffffff;
-  padding-bottom: 2px;
   transition: opacity 0.3s ease;
 }
 
 a:hover {
   opacity: 0.6;
+}
+
+/* CONTACT ICONS (FONT AWESOME) */
+.contact-links {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.contact-links a {
+  font-size: 28px;
+  color: white;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.contact-links a:hover {
+  transform: scale(1.3);
+  opacity: 0.7;
+}
+
+/* GLITCH EFFECT */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.glitch::before {
+  color: #0ff;
+}
+
+.glitch::after {
+  color: #f0f;
+}
+
+.glitch:hover::before {
+  animation: glitch 0.4s infinite;
+  opacity: 1;
+}
+
+.glitch:hover::after {
+  animation: glitch 0.4s infinite reverse;
+  opacity: 1;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
 }
 
 /* RESPONSIVE */
@@ -103,92 +187,3 @@ a:hover {
   }
 }
 
-/* VIDEO BACKGROUND */
-.bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-#hero {
-  position: relative;
-  overflow: hidden;
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  z-index: 2;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 3;
-  text-align: center;
-}
-
-.contact-links {
-  display: flex;
-  gap: 30px;
-  margin-top: 20px;
-}
-
-.contact-links a img {
-  width: 32px;
-  filter: invert(1);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.contact-links a:hover img {
-  transform: scale(1.2);
-  opacity: 0.7;
-}
-
-.glitch-hover h1 {
-  position: relative;
-  display: inline-block;
-}
-
-.glitch-hover h1::before,
-.glitch-hover h1::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  opacity: 0;
-}
-
-.glitch-hover h1::before {
-  color: #0ff;
-  z-index: -1;
-}
-
-.glitch-hover h1::after {
-  color: #f0f;
-  z-index: -2;
-}
-
-.glitch-hover:hover h1::before {
-  animation: glitch 0.4s infinite;
-  opacity: 1;
-}
-
-.glitch-hover:hover h1::after {
-  animation: glitch 0.4s infinite reverse;
-  opacity: 1;
-}
-
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
-}
