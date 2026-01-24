@@ -6,27 +6,29 @@ window.addEventListener("scroll", () => {
   sections.forEach(section => {
     const boxTop = section.getBoundingClientRect().top;
 
-    if (boxTop < triggerBottom) {
+    if (boxTop < triggerBottom && !section.classList.contains("show")) {
       section.classList.add("show");
     }
   });
 });
 
-const cursor = document.querySelector('.custom-cursor');
+const cursor = document.querySelector(".custom-cursor");
 
-document.addEventListener('mousemove', (e) => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-});
-
-const links = document.querySelectorAll('a');
-
-links.forEach(link => {
-  link.addEventListener('mouseenter', () => {
-    cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+if (cursor) {
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
   });
 
-  link.addEventListener('mouseleave', () => {
-    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+  const links = document.querySelectorAll("a");
+
+  links.forEach(link => {
+    link.addEventListener("mouseenter", () => {
+      cursor.style.transform = "translate(-50%, -50%) scale(1.5)";
+    });
+
+    link.addEventListener("mouseleave", () => {
+      cursor.style.transform = "translate(-50%, -50%) scale(1)";
+    });
   });
-});
+}

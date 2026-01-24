@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* GLOBAL */
@@ -37,14 +36,6 @@ body {
 /* SECTIONS */
 section {
   padding: 100px 10%;
-}
-
-h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 3px;
-}
-
-section {
   opacity: 0;
   transform: translateY(60px);
   transition: all 0.8s ease;
@@ -55,6 +46,16 @@ section.show {
   transform: translateY(0);
 }
 
+h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+}
+
+p {
+  line-height: 1.7;
+  max-width: 900px;
+}
 
 /* PROJECTS */
 .project-card {
@@ -63,7 +64,7 @@ section.show {
   margin-bottom: 30px;
 }
 
-/* CUSOR */
+/* CURSOR */
 .custom-cursor {
   width: 20px;
   height: 20px;
@@ -74,4 +75,30 @@ section.show {
   transform: translate(-50%, -50%);
   transition: transform 0.1s ease, background-color 0.2s ease;
   z-index: 9999;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* LINKS */
+a {
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px solid #ffffff;
+  padding-bottom: 2px;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 3.5rem;
+    letter-spacing: 4px;
+  }
+
+  section {
+    padding: 60px 6%;
+  }
 }
