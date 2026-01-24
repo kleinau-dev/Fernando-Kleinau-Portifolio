@@ -140,11 +140,9 @@ a:hover {
 }
 
 /* GLITCH EFFECT */
-/* GLITCH EFFECT */
 .glitch {
   position: relative;
-  display: inline-block;
-  color: #ffffff;
+  font-weight: 700;
 }
 
 .glitch::before,
@@ -152,32 +150,47 @@ a:hover {
   content: attr(data-text);
   position: absolute;
   left: 0;
-  top: 0;
   width: 100%;
-  opacity: 0;
-  pointer-events: none;
+  overflow: hidden;
 }
 
 .glitch::before {
-  color: #00ffff; /* Cyan */
+  top: -2px;
+  color: rgb(9, 10, 10);
   clip-path: inset(0 0 50% 0);
 }
 
 .glitch::after {
-  color: #ff00ff; /* Magenta */
+  top: 2px;
+  color: rgb(255, 255, 255);
   clip-path: inset(50% 0 0 0);
 }
 
 .glitch:hover::before {
-  opacity: 1;
-  animation: glitchTop 0.35s infinite linear;
+  animation: glitchTop 0.4s infinite linear;
 }
 
 .glitch:hover::after {
-  opacity: 1;
-  animation: glitchBottom 0.35s infinite linear;
+  animation: glitchBottom 0.4s infinite linear;
 }
 
+@keyframes glitchTop {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, -3px); }
+  40% { transform: translate(3px, 3px); }
+  60% { transform: translate(-3px, 3px); }
+  80% { transform: translate(3px, -3px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitchBottom {
+  0% { transform: translate(0); }
+  20% { transform: translate(3px, 3px); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(3px, -3px); }
+  80% { transform: translate(-3px, 3px); }
+  100% { transform: translate(0); }
+}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
